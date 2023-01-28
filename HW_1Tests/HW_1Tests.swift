@@ -1,11 +1,12 @@
 //
-//  HW_1Tests.swift
-//  HW_1Tests
+//  Homework_1Tests.swift
+//  Homework 1Tests
 //
-//  Created by Claire on 1/27/23.
+//  Created by Claire on 1/15/23.
 //
 
 import XCTest
+@testable import HW_1
 
 final class HW_1Tests: XCTestCase {
 
@@ -27,9 +28,19 @@ final class HW_1Tests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
 
+    func testNans() throws {
+        
+        XCTAssertThrowsError(try Sphere(radius: -1.0), "Should throw negative dimension error.") { (error) in
+            XCTAssertEqual(error as! shapeError, shapeError.negativeDimension)
+        }
+        XCTAssertThrowsError(try Sphere(radius: 0.0), "Should throw no dimension error.") { (error) in
+            XCTAssertEqual(error as! shapeError, shapeError.noDimension)
+        }
+        
+    }
 }
