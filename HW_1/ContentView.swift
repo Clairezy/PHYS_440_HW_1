@@ -15,7 +15,7 @@ struct ContentView: View {
             HStack(alignment: .center) {
                 Text("Radius:")
                 TextField("Enter radius", value: $object.radius, format: .number)
-                Button("Add 10", action: add10)
+                Button("Add 200", action: add10)
             }
            
             Text("Volume of Sphere: \(object.spherevolume())")
